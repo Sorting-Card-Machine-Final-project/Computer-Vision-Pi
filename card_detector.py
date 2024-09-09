@@ -1,7 +1,7 @@
 from ultralytics import YOLO
 import matplotlib.pyplot as plt
 import cv2
-import time
+
 
 
 class Card_Detector:
@@ -36,6 +36,18 @@ class Card_Detector:
         
         detections = self.get_detection_from_results(results)
         
+        if len(detections) > 0:
+            detected_cards = []
+            for detection in detections:
+                detected_cards.append(detection)  # Extract the label of the detected card
+            return detected_cards
+        else:
+            return None
+
+    def detect_from_image(self, image):
+        results = self.model.predict(image, conf=0.5, max_det=6, agnostic_nms=True, imgsz=640, task='detect')
+        detections = self.get_detection_from_results(results)
+
         if len(detections) > 0:
             detected_cards = []
             for detection in detections:
