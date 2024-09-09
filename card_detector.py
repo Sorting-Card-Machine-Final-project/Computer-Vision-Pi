@@ -6,7 +6,7 @@ import time
 
 class Card_Detector:
 
-    def __init__(self, model="best2.pt", t_interval=200, count_tresh=3, source=0):
+    def __init__(self, model="detect_model/best2.pt", t_interval=200, count_tresh=3, source=0):
 
         self.model = YOLO(model)
         self.time_interval = t_interval #the time to wait between each detection.
