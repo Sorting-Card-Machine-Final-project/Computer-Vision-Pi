@@ -1,7 +1,7 @@
 import gpoizero as gz
 import serial
 
-port = "dev/ttyS0" # Supposed to be the rught port for the pins
+port = "dev/ttyS0" # Supposed to be the right port for the pins
 boudrate = 9600
 
 ser = serial.Serial(port, baudrate)
